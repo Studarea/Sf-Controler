@@ -56,7 +56,7 @@ class PageController extends AbstractController
         // pour plus de lisibilité, j'ai choisi de créer la @Route en annotations plutôt qu'en fichier YAML, XML, PHP.
         // le chemin de l'url, son name (rendant ainsi unique cette @Route).
 
-     /**
+    /**
      * @Route("/prenomnom", name="prenom_nom")
      *
      */
@@ -127,59 +127,58 @@ class PageController extends AbstractController
         // je créé une réponse HTTP contenant la valeur de l'article
         // qui correspond à la wildcard id passée en URL
 
-        $response = new Response('<h1>'.$articles[$id].'</h1>');
+        return $this->render('article.html.twig');
 
         // je retourne ma réponse
 
-        return $response;
+       // return $response;
 
         //  http://localhost/sf-exe/public/article/2
     }
 
-        // - créer une page d'accueil qui affiche un message simple
-        //- créer une page "form" qui affiche un message si le formulaire n'a pas été envoyé, sinon (si le form a été envoyé) redirige vers la page d'accueil
-        //- (utiliser une variable $isFormSubmitted en bool pour simuler l'envoi du formulaire)
+    // EXO :
+    // - créer une page d'accueil qui affiche un message simple
+    //- créer une page "form" qui affiche un message si le formulaire n'a pas été envoyé, sinon (si le form a été envoyé) redirige vers la page d'accueil
+    //- (utiliser une variable $isFormSubmitted en bool pour simuler l'envoi du formulaire)
 
 
 
-        // je créer de l'url de la page d'accueil
+    // je créer de l'url de la page d'accueil
 
     /**
      * @Route("/", name="home")
      */
-        public function home ()
-        {
-            return new Response ("page d'accueil !");
+    public function home ()
+    {
+        return new Response ("page d'accueil !");
 
-        }
+    }
 
-        // je créer de l'url de la page fictive de formulaire
+    // je créer de l'url de la page fictive de formulaire
     /**
      * @Route ("/form-process", name="form_process")
      */
 
-        // je créer la méthode
-        public function processForm ()
-        {
-
-            $isFormSubmitted = true;
+    // je créer la méthode
+    public function processForm ()
+    {
+        $isFormSubmitted = true;
 
          if (!$isFormSubmitted)  {
              // je vérie si l'utilisateur à rempli le formulaire, si ce n'est pas le cas :
              return new Response('Merci de remplir le formulaire');
 
-          } else {
-                 // j'utilise la méthode redirectToRoute
-                 // qui est définie non pas dans la classe actuelle,
-                 // mais dans la classe AbstractController que la classe actuelle étend
-                 // cette méthode permet de faire une redirection vers une page
-                 // en utilisant le nom de la route
+         } else {
+             // j'utilise la méthode redirectToRoute
+             // qui est définie non pas dans la classe actuelle,
+             // mais dans la classe AbstractController que la classe actuelle étend
+             // cette méthode permet de faire une redirection vers une page
+             // en utilisant le nom de la route
 
-                 // si oui ! je redirige vers la home page.
-                 return $this->redirectToRoute("home");
-             }
-
+             // si oui ! je redirige vers la home page.
+             return $this->redirectToRoute("home");
          }
+    }
 
 }
 
