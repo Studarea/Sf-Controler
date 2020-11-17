@@ -127,6 +127,8 @@ class PageController extends AbstractController
         // je créé une réponse HTTP contenant la valeur de l'article
         // qui correspond à la wildcard id passée en URL
 
+
+        // visualisation d'une page HTML avec la méthode render de Twig
         return $this->render('article.html.twig');
 
         // je retourne ma réponse
