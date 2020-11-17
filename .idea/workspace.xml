@@ -144,7 +144,7 @@
       <workItem from="1605531457238" duration="7902000" />
       <workItem from="1605549616509" duration="4557000" />
       <workItem from="1605592875733" duration="3354000" />
-      <workItem from="1605599618816" duration="8424000" />
+      <workItem from="1605599618816" duration="9243000" />
     </task>
     <servers />
   </component>
@@ -168,5 +168,16 @@
       <screen x="1440" y="23" width="1600" height="1136" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.1440.877/1440.23.1600.1136@1440.23.1600.1136" timestamp="1605595797307" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Controller/PagePokerController.php</url>
+          <line>124</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

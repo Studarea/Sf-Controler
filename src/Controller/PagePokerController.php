@@ -88,36 +88,29 @@ class PagePokerController
 
         return $response;
     }
-    
+
         // http://localhost/sf-exe/public/prenomnom?prenom=Cyril&nom=PIERRE
-
-
-
+    
 
         // exo :  Remplacer le système de paramètre d'url par le système de wildcard
 
 
     /**
-    * @Route("/article/{id}", name="article_show")
+     * je créé une route avec dans l'url une "wildcard"
+     * qui sera remplie par l'utilisateur après /article/ dans l'url
      *
-     * je passe en paramètre de la méthode de controleur
-     * la classe Request associée à la variable Request
-     * pour utiliser le mécanisme d'autowire de Symfony
-     * cad : Symfony va instancier automatiquement la classe Request
-     * dans la variable $request
+     * @Route("/article/{id}", name="article_show")
+     *
+     * je mets en parametre de la méthode une variable $id (dont le nom
+     * correspond à la wildcard créée) pour demander à Symfony
+     * de mettre la valeur de la wildcard dans la variable
      */
 
-
         // je créer la méthode articleShow et dans les paramètres ()
-        // (la classe Request associée à la variable Request)
 
     public function articleShow($id)
     {
-
         // var_dump( 'test'); die;
-
-        // j'utilise la classe Request pour récupérer le paramètre d'url et son id
-        // $idArticle = $request->query->get('id');
 
         // je créer le tableau avec leur index numérique
         // simulant une requète en BDD pour récupérer l'intégralité d'un article
@@ -131,8 +124,8 @@ class PagePokerController
             6 => "Article 6",
         ];
 
-        // je créer une réponse HTP contenant la valeur de l'article
-        // qui correspond à l'id passé en URL
+        // je créé une réponse HTTP contenant la valeur de l'article
+        // qui correspond à la wildcard id passée en URL
 
         $response = new Response('<h1>'.$articles[$id].'</h1>');
 
