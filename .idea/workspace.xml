@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="144a2531-5147-48d2-8bb2-822a936c9422" name="Default Changelist" comment="" />
+    <list default="true" id="144a2531-5147-48d2-8bb2-822a936c9422" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PagePokerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PagePokerController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -116,6 +122,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1kNC2ZV5n9OKyaf8U1NdZZoheA4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -134,7 +141,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605531456148</updated>
-      <workItem from="1605531457238" duration="6805000" />
+      <workItem from="1605531457238" duration="7902000" />
+      <workItem from="1605549616509" duration="4557000" />
+      <workItem from="1605592875733" duration="3354000" />
+      <workItem from="1605599618816" duration="5325000" />
     </task>
     <servers />
   </component>
@@ -154,5 +164,9 @@
       <screen x="0" y="23" width="1440" height="836" />
     </state>
     <state x="476" y="178" key="NewPhpClassDialog/0.23.1440.836@0.23.1440.836" timestamp="1605531593139" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1605595797307">
+      <screen x="1440" y="23" width="1600" height="1136" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.23.1440.877/1440.23.1600.1136@1440.23.1600.1136" timestamp="1605595797307" />
   </component>
 </project>
