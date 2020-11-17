@@ -7,13 +7,13 @@ namespace App\Controller;
 
 // les use sont les chemins (path) où sont situés les composants de la librairie Symfony (classes dans les classes).
 // (ce sont " les namespace façon require " = inclut le contenu du composant appelé).
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 
-
-class PagePokerController
+class PageController extends AbstractController
 
 {
      /**
@@ -68,7 +68,6 @@ class PagePokerController
         // la classe Request de Symfony possède des méthodes et des propriétés
         // pour récupérer les données de la requête.
 
-
     public function Reponse(Request $request)
     {
 
@@ -90,30 +89,31 @@ class PagePokerController
     }
 
         // http://localhost/sf-exe/public/prenomnom?prenom=Cyril&nom=PIERRE
-    
+
+
 
         // exo :  Remplacer le système de paramètre d'url par le système de wildcard
 
 
     /**
-     * je créé une route avec dans l'url une "wildcard"
+     * je créer une route avec dans l'url une "wildcard"
      * qui sera remplie par l'utilisateur après /article/ dans l'url
      *
      * @Route("/article/{id}", name="article_show")
      *
-     * je mets en parametre de la méthode une variable $id (dont le nom
-     * correspond à la wildcard créée) pour demander à Symfony
-     * de mettre la valeur de la wildcard dans la variable
+     * je mets en paramètre de la méthode une variable $id (dont le nom correspond à la wildcard créée)
+     * pour demander à Symfony de mettre la valeur de la wildcard dans la variable.
      */
 
         // je créer la méthode articleShow et dans les paramètres ()
 
     public function articleShow($id)
     {
-        // var_dump( 'test'); die;
+        // var_dump( 'test page'); die;
 
         // je créer le tableau avec leur index numérique
         // simulant une requète en BDD pour récupérer l'intégralité d'un article
+
 
         $articles = [
             1 => "Article 1",
@@ -135,6 +135,52 @@ class PagePokerController
 
         //  http://localhost/sf-exe/public/article/2
     }
+
+        // - créer une page d'accueil qui affiche un message simple
+        //- créer une page "form" qui affiche un message si le formulaire n'a pas été envoyé, sinon (si le form a été envoyé) redirige vers la page d'accueil
+        //- (utiliser une variable $isFormSubmitted en bool pour simuler l'envoi du formulaire)
+
+
+
+        // je créer de l'url de la page d'accueil
+
+    /**
+     * @Route("/", name="home")
+     */
+        public function home ()
+        {
+            return new Response ("page d'accueil !");
+
+        }
+
+        // je créer de l'url de la page fictive de formulaire
+    /**
+     * @Route ("/form-process", name="form_process")
+     */
+
+        // je créer la méthode
+        public function processForm ()
+        {
+
+            $isFormSubmitted = true;
+
+         if (!$isFormSubmitted)  {
+             // je vérie si l'utilisateur à rempli le formulaire, si ce n'est pas le cas :
+             return new Response('Merci de remplir le formulaire');
+
+          } else {
+                 // j'utilise la méthode redirectToRoute
+                 // qui est définie non pas dans la classe actuelle,
+                 // mais dans la classe AbstractController que la classe actuelle étend
+                 // cette méthode permet de faire une redirection vers une page
+                 // en utilisant le nom de la route
+
+                 // si oui ! je redirige vers la home page.
+                 return $this->redirectToRoute("home");
+             }
+
+         }
+
 }
 
 ?>
