@@ -95,8 +95,11 @@ public function poker(Request $request)
 
 
 
+// exo :  Remplacer le système de paramètre d'url par le système de wildcard
+
+
     /**
-    * @Route("/article", name="article_show")
+    * @Route("/article/{id}", name="article_show")
      *
      *
      * je passe en paramètre de la méthode de controleur
@@ -107,40 +110,44 @@ public function poker(Request $request)
      */
 
 
-// je créer la méthode articleShow et dans les paramètres ()
-// (la classe Request associée à la variable Request)
+    // je créer la méthode articleShow et dans les paramètres ()
+    // (la classe Request associée à la variable Request)
 
-public function articleShow(Request $request) {
+    public function articleShow($id) {
 
     // var_dump( 'test'); die;
 
 
-// j'utilise la classe Request pour récupérer le paramètre d'url et son id
-
-    $idArticle = $request->query->get('id');
+    // j'utilise la classe Request pour récupérer le paramètre d'url et son id
+    // $idArticle = $request->query->get('id');
 
 
 
     // je créer le tableau avec leur index numérique
     // simulant une requète en BDD pour récupérer l'intégralité d'un article
+
     $articles = [
-    '1' => "Article 1",
-    '2' => "Article 2",
-    '3' => "Article 3",
-    '4' => 'Article 4',
-    '5' => "Article 5",
-    '6' => "Article 6",
-];
+        '1' => "Article 1",
+        '2' => "Article 2",
+        '3' => "Article 3",
+        '4' => 'Article 4',
+        '5' => "Article 5",
+        '6' => "Article 6",
+    ];
 
 
     // je créer une réponse HTP contenant la valeur de l'article
     // qui correspond à l'id passé en URL
 
-    $response = new Response('<h1>'.$articles[$idArticle].'</h1>');
+    $response = new Response('<h1>'.$articles[$id].'</h1>');
 
     // je retourne ma réponse
-    return $response;
-}
+
+        return $response;
+
+       //  http://localhost/sf-exe/public/article/2
+
+    }
 }
 
 ?>
