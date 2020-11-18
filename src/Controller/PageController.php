@@ -241,11 +241,12 @@ class PageController extends AbstractController
     {
         $skills = ['Frenchy', 'Dujadrin', 'Comedy'];
 
+        // Retourne le resultat de la méthode, ciblant le fichier .html.twig
+        // Renvoi un fichier twig compilé pour le HTML
 
-        // je retourne la page skills compilée avec twig
         return $this->render('skills.html.twig', [
 
-        
+        // à gauche la variable appelée dans le fichier Twig, à droite la variable qui fait appel au tableau
             'skills' => $skills
         ]);
 
