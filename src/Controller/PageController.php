@@ -249,9 +249,60 @@ class PageController extends AbstractController
         // à gauche la variable appelée dans le fichier Twig, à droite la variable qui fait appel au tableau
             'skills' => $skills
         ]);
-
     }
 
+    // je créer la @Route
+    /**
+     * @Route ("/agents", name="agents_profils")
+     */
+
+
+
+    // je créer la méthode agents et les compétence dans le tableau
+    public function agents()
+    {
+        $agents = [
+            1 => [
+                "lastName" => "Robert",
+                "firstName" => "David",
+                "age" => 30,
+                "published" => true
+            ],
+            2 => [
+                "lastName" => "Labaste",
+                "firstName" => "Denis",
+                "age" => 29,
+                "published" => true
+            ],
+            3 => [
+                "lastName" => "Rozand",
+                "firstName" => "Mathieu",
+                "age" => 31,
+                "published" => false
+            ],
+            4 => [
+                "lastName" => "Despert",
+                "firstName" => "Yoann",
+                "age" => 33,
+                "published" => true
+            ],
+            5 => [
+                "lastName" => "Dorignac",
+                "firstName" => "Loic",
+                "age" => 34,
+                "published" => false
+            ]
+        ];
+
+        return $this->render('agents.html.twig', [
+
+            // à gauche la variable appelée dans le fichier Twig,
+            // à droite la variable qui fait appel au Tableau Array
+
+            'agents' => $agents
+        ]);
+    }
+    
 }
 
 ?>

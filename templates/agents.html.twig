@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Informations sur les agents de la Piscine !!!</title>
+</head>
+<body>
+
+
+{# je creer ma boucle for faisant appel au contenu du tableau des agents #}
+
+
+{% for agent in agents %}
+
+    {# je créer la condition qui affiche les agents si "published" => true #}
+    {# sinon elle n'affiche rien #}
+
+    {% if agent.published %}
+        <ol>
+            <li><h1>{{ agent.firstName }} {{ agent.lastName }}</h1></li>
+            <li><h2>L'age de l'agent est : {{ agent.age }}</h2></li>
+        </ol>
+    {% else %}
+
+    {% endif %}
+{% endfor %}
+
+
+</body>
+</html>
+
