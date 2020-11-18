@@ -126,10 +126,31 @@ class PageController extends AbstractController
 
         // je créé une réponse HTTP contenant la valeur de l'article
         // qui correspond à la wildcard id passée en URL
+        /* $response = new Response('<h1>'.$articles[$id].'</h1>'); */
 
+        // visualisation d'une page HTML avec la 11
 
-        // visualisation d'une page HTML avec la méthode render de Twig
-        return $this->render('article.html.twig');
+        // je récupère l'article se trouvant dans l'array des $articles
+        // en fonction de l'id passée en url
+        $article = $articles [$id];
+
+        // j'utilise la méthode render (issue de l'AbstractController)
+        // qui va récupérer un fichier html.twig (dans le dossier templates)
+        // puis le compiler en HTML et le renvoyer en tant que réponse HTTP via le Controller
+
+        // je passe en second paramètre de la méthode render
+        // un tableau (array) qui contient toutes les variables
+        // que je veux utiliser dans twig
+        // Tant que je n'envoie pas les variables au fichier twig
+        // je ne peux pas les appeler car c'est un fichier séparé.
+
+        return $this->render('article.html.twig', [
+
+            // ici je fait le lien avec la variable à mon fichier html.twig'
+            'monArticle' => $article
+
+            ]);
+
 
         // je retourne ma réponse
 
@@ -145,18 +166,20 @@ class PageController extends AbstractController
 
 
 
-    // je créer de l'url de la page d'accueil
+    // je créer le chemin et l'url de la page d'accueil
 
     /**
      * @Route("/", name="home")
      */
+
+    // je créer la méthode
     public function home ()
     {
         return new Response ("page d'accueil !");
 
     }
 
-    // je créer de l'url de la page fictive de formulaire
+    // je créer le chemin et l'url de la page fictive du formulaire
     /**
      * @Route ("/form-process", name="form_process")
      */
@@ -174,6 +197,7 @@ class PageController extends AbstractController
              // j'utilise la méthode redirectToRoute
              // qui est définie non pas dans la classe actuelle,
              // mais dans la classe AbstractController que la classe actuelle étend
+
              // cette méthode permet de faire une redirection vers une page
              // en utilisant le nom de la route
 
@@ -181,7 +205,6 @@ class PageController extends AbstractController
              return $this->redirectToRoute("home");
          }
     }
-
 }
 
 ?>
