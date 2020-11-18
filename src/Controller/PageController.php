@@ -227,6 +227,30 @@ class PageController extends AbstractController
 
              ]);
     }
+
+
+
+    // je créer la @Route
+    /**
+     * @Route ("/profil-skills", name="skills_show")
+     */
+
+
+    // je créer la méthode skills et les compétence dans le tableau
+    public function skills()
+    {
+        $skills = ['Frenchy', 'Dujadrin', 'Comedy'];
+
+
+        // je retourne la page skills compilée avec twig
+        return $this->render('skills.html.twig', [
+
+        
+            'skills' => $skills
+        ]);
+
+    }
+
 }
 
 ?>

@@ -11,7 +11,7 @@
 {# pour accéder au clé d'un tableau on met un . #}
 {% if profile.active %}
     <h1>{{ profile.firstname }} {{ profile.name }}</h1>
-    <h2>{{ profile.age }}</h2>
+    <h2>age : {{ profile.age }}</h2>
     <p>Le métier est : {{ profile.job}}</p>
 {% else %}
     <h1>vous n'êtes pas connecté !</h1>
