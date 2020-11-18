@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Informations de l'utilisateur Noël</title>
+
+
+</head>
+<body>
+
+{# pour accéder au clé d'un tableau on met un . #}
+{% if profile.active %}
+    <h1>{{ profile.firstname }} {{ profile.name }}</h1>
+    <h2>{{ profile.age }}</h2>
+    <p>Le métier est : {{ profile.job}}</p>
+{% else %}
+    <h1>vous n'êtes pas connecté !</h1>
+{% endif %}
+
+</body>
+</html>

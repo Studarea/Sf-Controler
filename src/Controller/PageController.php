@@ -138,11 +138,10 @@ class PageController extends AbstractController
         // qui va récupérer un fichier html.twig (dans le dossier templates)
         // puis le compiler en HTML et le renvoyer en tant que réponse HTTP via le Controller
 
+
         // je passe en second paramètre de la méthode render
-        // un tableau (array) qui contient toutes les variables
-        // que je veux utiliser dans twig
-        // Tant que je n'envoie pas les variables au fichier twig
-        // je ne peux pas les appeler car c'est un fichier séparé.
+        // dans un tableau (array) qui contient toutes les variables que je veux utiliser dans twig
+        // Tant que je n'envoie pas les variables au fichier twig je ne peux pas les appeler car c'est un fichier séparé.
 
         return $this->render('article.html.twig', [
 
@@ -204,6 +203,29 @@ class PageController extends AbstractController
              // si oui ! je redirige vers la home page.
              return $this->redirectToRoute("home");
          }
+    }
+
+    // je créer le chemin et l'url de la page fictive du formulaire
+    /**
+     * @Route ("/profile", name="profile_show")
+     */
+
+
+    public function noelShow()
+    {
+     $profile = [
+        "firstname" => "Noel",
+        "name" => "Flantier",
+        "age" => 40,
+        "job" => "secret agent",
+        "active" => true
+        ];
+
+     return $this->render('noel.html.twig', [
+
+        "profile" => $profile
+
+             ]);
     }
 }
 
