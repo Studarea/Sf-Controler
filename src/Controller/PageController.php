@@ -252,7 +252,7 @@ class PageController extends AbstractController
 
     // je créer la @Route
     /**
-     * @Route ("/agent", name="agents_profils")
+     * @Route ("/agents", name="agents_profils")
      */
 
 
