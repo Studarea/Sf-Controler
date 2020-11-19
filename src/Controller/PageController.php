@@ -229,17 +229,16 @@ class PageController extends AbstractController
     }
 
 
-
     // je créer la @Route
     /**
      * @Route ("/profil-skills", name="skills_show")
      */
 
 
-    // je créer la méthode skills et les compétence dans le tableau
+    // je créer la méthode skills
     public function skills()
     {
-        $skills = ['Frenchy', 'Dujadrin', 'Comedy'];
+        $skills = ['Frenchy', 'Dujardin', 'Comedy'];
 
         // Retourne le resultat de la méthode, ciblant le fichier .html.twig
         // Renvoi un fichier twig compilé pour le HTML
@@ -253,40 +252,44 @@ class PageController extends AbstractController
 
     // je créer la @Route
     /**
-     * @Route ("/agents", name="agents_profils")
+     * @Route ("/agent", name="agents_profils")
      */
 
 
-
-    // je créer la méthode agents et les compétence dans le tableau
+    // je créer la méthode agents et les informations dans le tableau
     public function agents()
     {
-        $agents = [
+        $agentsArray = [
             1 => [
+                "id" => 1,
                 "lastName" => "Robert",
                 "firstName" => "David",
                 "age" => 30,
                 "published" => true
             ],
             2 => [
+                "id" => 2,
                 "lastName" => "Labaste",
                 "firstName" => "Denis",
                 "age" => 29,
                 "published" => true
             ],
             3 => [
+                "id" => 3,
                 "lastName" => "Rozand",
                 "firstName" => "Mathieu",
                 "age" => 31,
                 "published" => false
             ],
             4 => [
+                "id" => 4,
                 "lastName" => "Despert",
                 "firstName" => "Yoann",
                 "age" => 33,
                 "published" => true
             ],
             5 => [
+                "id" => 5,
                 "lastName" => "Dorignac",
                 "firstName" => "Loic",
                 "age" => 34,
@@ -299,10 +302,69 @@ class PageController extends AbstractController
             // à gauche la variable appelée dans le fichier Twig,
             // à droite la variable qui fait appel au Tableau Array
 
-            'agents' => $agents
+            'agentsTwig' => $agentsArray
         ]);
     }
-    
+
+    /**
+     * @Route ("/agent/{id}", name="agent_show")
+     */
+
+
+    // je créer la méthode agents et les informations dans le tableau
+
+    public function agentShow($id)
+
+
+    {
+        $agentsArray = [
+            1 => [
+                "id" => 1,
+                "lastName" => "Robert",
+                "firstName" => "David",
+                "age" => 30,
+                "published" => true
+            ],
+            2 => [
+                "id" => 2,
+                "lastName" => "Labaste",
+                "firstName" => "Denis",
+                "age" => 29,
+                "published" => true
+            ],
+            3 => [
+                "id" => 3,
+                "lastName" => "Rozand",
+                "firstName" => "Mathieu",
+                "age" => 31,
+                "published" => false
+            ],
+            4 => [
+                "id" => 4,
+                "lastName" => "Despert",
+                "firstName" => "Yoann",
+                "age" => 33,
+                "published" => true
+            ],
+            5 => [
+                "id" => 5,
+                "lastName" => "Dorignac",
+                "firstName" => "Loic",
+                "age" => 34,
+                "published" => false
+            ]
+        ];
+
+        $agent = $agentsArray[$id];
+
+        return $this->render('agent.html.twig', [
+
+
+            'agent' => $agent
+
+        ]);
+    }
+
 }
 
 ?>

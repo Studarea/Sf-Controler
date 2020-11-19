@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,25 +8,24 @@
 <body>
 
 
-{# je creer ma boucle for faisant appel au contenu du tableau des agents #}
+<main>
 
+    {% for agent in agentsTwig %}
 
-{% for agent in agents %}
+        {# je créer la condition qui affiche les agents si "published" == true #}
+        {# sinon je n'affiche rien #}
 
-    {# je créer la condition qui affiche les agents si "published" => true #}
-    {# sinon elle n'affiche rien #}
+        {% if agent.published %}
+            {# j'interroge les id de chaque agent, j n'affiche que les published == true  #}
+            <p>
+                <a href="{{ path('agent_show', {'id': agent.id}) }}">{{ agent.firstName }} {{ agent.lastName }}</a>
+            </p>
 
-    {% if agent.published %}
-        <ol>
-            <li><h1>{{ agent.firstName }} {{ agent.lastName }}</h1></li>
-            <li><h2>L'age de l'agent est : {{ agent.age }}</h2></li>
-        </ol>
-    {% else %}
+        {% endif %}
 
-    {% endif %}
-{% endfor %}
+    {% endfor %}
 
+</main>
 
 </body>
 </html>
-
